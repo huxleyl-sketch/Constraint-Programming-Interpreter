@@ -3,7 +3,7 @@
 //constraint{scope: [variable],rel: ()=>{}}
 function Dfs(vars = [], cons = []){
    let assignment = [];
-   rDfs(vars);
+   rDfs(--vars.length,vars);
    function check(){
       cons.every(con => {
          let values = con.scope.map(v => assignment[vars.indexOf(v)]);
