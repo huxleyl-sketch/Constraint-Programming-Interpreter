@@ -5,7 +5,7 @@ let v2 = {name:"v2", domain: d};
 let r1 = (A,B) => A+B == 5;
 let con = {scope: [v1,v2], rel: r1};
 solver.addConstraint(con);
-solver.findAssignment()
+console.log(solver.findAssignment());
 
 //variable {name: "", domain: ""}
 //domain []
