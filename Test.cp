@@ -16,11 +16,11 @@ r2(A,B) <- /r1(A,B)
 people := [bart,homer,marge,lisa]
 (s1,s2,s3,s4) :- people
 
+assignment(s1,s2,s3,s4) <- nequal(s1,s2,s3,s4), table(s1,s2) , table(s3,s4)
 
-arrangement := {[s1,s2,s3,s4],(/equal(s1,s2,s3,s4), table(s1,s2) , table(s3,s4))}
-
-equal(...X) <- :(A,B) :- X | equal(A,B)
-table(...A) <- :(X,Y) :- A | like(X,Y) , /equal(X,Y)
+equal(X,Y) <- equal(X,X)
+nequal(...X) <- :(A,B) :- X && /equal(A,B) | /equal(A,B)
+table(...A) <- :(X,Y) :- A | like(X,Y) , nequal(X,Y)
 
 like(bart,X) <> X :- [homer,marge]
 like(homer,X) <- X :- [marge,bart]
