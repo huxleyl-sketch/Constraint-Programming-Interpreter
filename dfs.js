@@ -21,5 +21,6 @@ function Dfs(vars = [], cons = []){
       }
       else return check();
    }
+   return assignment;
 }
   
