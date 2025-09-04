@@ -2,37 +2,24 @@
 //domain []
 //constraint{scope: [variable],rel: ()=>{}}
 function Dfs(vars = [], cons = []){
-   let searched = [];
-   for(let v in vars){
-      if(!searched.includes(v)){ //if v is not assigned
-         for(d in v.domain){
-            searched.push([v,]);
-         }
-         for(let c in cons){
-            for(let s in c.scope){
-               if(s != v){
-
-               }
-            }
-         }
-      }
+   let assignment = [];
+   rDfs(vars);
+   function check(){
+      cons.every(con => {
+         let values = con.scope.map(v => assignment[vars.indexOf(v)]);
+         return con.rel(...values);
+      });
    }
-   
-   
-   //remove first var from stack
-   //assign a value to var from domain
-   //find scopes
-   //go to other vars in scopes
-   //repeat
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+   function rDfs(ind,rest){
+      if(rest.length > 0){
+         for(let x in rest.pop().domain){
+            assignment[ind] = x;
+            if(rDfs(--ind,rest))
+               return true;
+         }
+         return false;
+      }
+      else return check();
+   }
 }
   
