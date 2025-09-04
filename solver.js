@@ -16,7 +16,7 @@ class Solver{
         
         constraint.scope.forEach(v => {
             if(!this.searchVariables(v.name))
-                this.addVariable(v.name);
+                this.addVariable(v);
         });
         this.constraints.push(constraint);
     }
