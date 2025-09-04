@@ -1,7 +1,7 @@
 //variable {name: "", domain: ""}
 //domain []
 //constraint{scope: [variable],rel: ()=>{}}
-function Dfs(vars = [], cons = []){
+function Dfs(vars, cons){
    let assignment = [];
    rDfs(--vars.length,vars);
    function check(){

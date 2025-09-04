@@ -1,5 +1,5 @@
 class Solver{
-    constructor(algorithm = ()=>{}){
+    constructor(algorithm){
         this.algorithm = algorithm;
         this.variables = []; //Variable Array
         this.constraints = []; //Constraint Array

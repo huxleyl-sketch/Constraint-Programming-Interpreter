@@ -1,4 +1,4 @@
-let solver = new Solver();
+let solver = new Solver(Dfs);
 let d = [1,2,3,4];
 let v1 = {name:"v1", domain: d};
 let v2 = {name:"v2", domain: d};
