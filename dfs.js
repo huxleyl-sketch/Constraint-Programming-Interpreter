@@ -1,10 +1,21 @@
-function Dfs(vars = [], cons = [Constraint]){
-   //Check each assignment
-   //Check all 
-   let assignment = []
-   function rDfs(vars1,cons1, name = null){
-    let varStack = new vars1;
-    let conStack = [...cons1];
+//variable {name: "", domain: ""}
+//domain []
+//constraint{scope: [variable],rel: ()=>{}}
+function Dfs(vars = [], cons = []){
+   let searched = [];
+   for(let v in vars){
+      if(!searched.includes(v)){ //if v is not assigned
+         for(d in v.domain){
+            searched.push([v,]);
+         }
+         for(let c in cons){
+            for(let s in c.scope){
+               if(s != v){
+
+               }
+            }
+         }
+      }
    }
    
    
