@@ -4,18 +4,16 @@ class Solver{
         this.variables = []; //Variable Array
         this.constraints = []; //Constraint Array
     }
-    // addVariable(domain){
-    //     this.variables.set(`${this.variables.length}`,domain);
-    // }
     addVariable(variable){
         this.variables.push(variable);
     }
     searchVariables = (variable) => 
-        this.variables.some(v => v[0] = variable.name);
+        this.variables.some(v => v.name == variable.name);
+    searchConstraints = (variable) => 
+        this.constraints.filter(c => c.scope.includes(variable));
     addConstraint(constraint){
-        
         constraint.scope.forEach(v => {
-            if(!this.searchVariables(v.name))
+            if(!this.searchVariables(v))
                 this.addVariable(v);
         });
         this.constraints.push(constraint);
